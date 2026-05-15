@@ -9,8 +9,15 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
-app.use(express.json());
+const corsOptions = {
+  origin: [
+    'http://localhost:2000', 
+    'http://localhost:5173',
+    'https://atp-mern-assignment-week-8-enuv.vercel.app'
+  ], // Allow frontend origins (localhost for dev, deployed frontend)
+  credentials: true, // Allow cookies and credentials
+};
+app.use(cors(corsOptions));
 
 // Database connection
 mongoose.connect(process.env.DB_URL)

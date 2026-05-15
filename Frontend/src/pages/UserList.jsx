@@ -7,7 +7,7 @@ function UserList() {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:2000/api/users');
+      const response = await axios.get('https://atp-mern-assignment-week-8-2.onrender.com/api/users');
       setUsers(response.data.payload);
       setLoading(false);
     } catch (error) {
