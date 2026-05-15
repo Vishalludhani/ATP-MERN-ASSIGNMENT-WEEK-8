@@ -25,6 +25,7 @@ mongoose.connect(process.env.DB_URL)
   .catch(err => console.error('MongoDB connection error:', err));
 
 // Routes
+app.use(express.json());
 app.use('/api', UserApp);
 
 const PORT = process.env.PORT || 2000;
